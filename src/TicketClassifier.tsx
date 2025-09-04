@@ -88,7 +88,7 @@ interface TableRowData {
 }
 
 export default function TicketClassifier(props: any) {
-    const userName: string | null = sessionStorage.getItem("displayName")?.toString() ?? "Raj Kapoor";
+    const userName: string | null = sessionStorage.getItem("displayName")?.toString() ?? "Meena Krishnan";
     const [showWelcomeMessage, setShowWelcomeMessage] = useState<boolean>(true);
     const applicationType = props?.props?.title;
     // const applicationObjId = props?.props?.objid;
