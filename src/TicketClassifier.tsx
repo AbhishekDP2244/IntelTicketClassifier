@@ -22,55 +22,55 @@ interface Department {
 }
 
 // Individual interfaces for better type safety
-interface CategoryData {
-    [key: number]: string; // e.g., { 0: 'User Account', 1: 'Password Reset', ... }
-}
+// interface CategoryData {
+//     [key: number]: string; // e.g., { 0: 'User Account', 1: 'Password Reset', ... }
+// }
 
-interface DescriptionData {
-    [key: number]: string; // e.g., { 0: 'emp c...', ... }
-}
-interface ProcessedDescriptionData {
-    [key: number]: string; // e.g., { 0: 'emp c...', ... }
-}
+// interface DescriptionData {
+//     [key: number]: string; // e.g., { 0: 'emp c...', ... }
+// }
+// interface ProcessedDescriptionData {
+//     [key: number]: string; // e.g., { 0: 'emp c...', ... }
+// }
 
-interface SubCategoryData {
-    [key: number]: string; // e.g., { 0: 'Password Reset', ... }
-}
+// interface SubCategoryData {
+//     [key: number]: string; // e.g., { 0: 'Password Reset', ... }
+// }
 
-interface TicketIdData {
-    [key: number]: string; // e.g., { 0: '35019103', ... }
-}
+// interface TicketIdData {
+//     [key: number]: string; // e.g., { 0: '35019103', ... }
+// }
 
-interface ConcatenatedCategoryData {
-    [key: number]: string; // e.g., { 0: 'User...', ... }
-}
-interface InterData3 {
-    [key: string]: number
-}
-interface InterData2 {
-    class_probabilities: InterData3;
-    predicted_class: string;
-    ticket_status: string;
-}
-interface IntermediateResultData {
-    [key: number]: InterData2; // e.g., { 0: {...}, 1: {...}, ... }
-}
+// interface ConcatenatedCategoryData {
+//     [key: number]: string; // e.g., { 0: 'User...', ... }
+// }
+// interface InterData3 {
+//     [key: string]: number
+// }
+// interface InterData2 {
+//     class_probabilities: InterData3;
+//     predicted_class: string;
+//     ticket_status: string;
+// }
+// interface IntermediateResultData {
+//     [key: number]: InterData2; // e.g., { 0: {...}, 1: {...}, ... }
+// }
 
-interface ProcessedConcatenatedCategoryData {
-    [key: number]: string;
-}
+// interface ProcessedConcatenatedCategoryData {
+//     [key: number]: string;
+// }
 
-// Main interface for tabular_data
-interface TabularData {
-    Category: CategoryData;
-    Description: DescriptionData;
-    Processed_Description: ProcessedDescriptionData;
-    Sub_Category: SubCategoryData;
-    Ticket_ID: TicketIdData;
-    concatenated_category: ConcatenatedCategoryData;
-    intermediate_result: IntermediateResultData;
-    processed_concatenated_category: ProcessedConcatenatedCategoryData;
-}
+// // Main interface for tabular_data
+// interface TabularData {
+//     Category: CategoryData;
+//     Description: DescriptionData;
+//     Processed_Description: ProcessedDescriptionData;
+//     Sub_Category: SubCategoryData;
+//     Ticket_ID: TicketIdData;
+//     concatenated_category: ConcatenatedCategoryData;
+//     intermediate_result: IntermediateResultData;
+//     processed_concatenated_category: ProcessedConcatenatedCategoryData;
+// }
 
 // Interface for the transformed row data
 interface TableRowData {
