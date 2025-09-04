@@ -141,25 +141,25 @@ export default function TicketClassifier(props: any) {
     };
 
     // Custom body template for long text fields (optional)
-    const descriptionBodyTemplate = (rowData: TableRowData) => {
-        return (
-            <div title={rowData.description}>
-                {rowData.description.length > 50
-                    ? `${rowData.description.substring(0, 50)}...`
-                    : rowData.description}
-            </div>
-        );
-    };
+    // const descriptionBodyTemplate = (rowData: TableRowData) => {
+    //     return (
+    //         <div title={rowData.description}>
+    //             {rowData.description.length > 50
+    //                 ? `${rowData.description.substring(0, 50)}...`
+    //                 : rowData.description}
+    //         </div>
+    //     );
+    // };
 
-    const processedDescriptionBodyTemplate = (rowData: TableRowData) => {
-        return (
-            <div title={rowData.processedDescription}>
-                {rowData.processedDescription.length > 50
-                    ? `${rowData.processedDescription.substring(0, 50)}...`
-                    : rowData.processedDescription}
-            </div>
-        );
-    };
+    // const processedDescriptionBodyTemplate = (rowData: TableRowData) => {
+    //     return (
+    //         <div title={rowData.processedDescription}>
+    //             {rowData.processedDescription.length > 50
+    //                 ? `${rowData.processedDescription.substring(0, 50)}...`
+    //                 : rowData.processedDescription}
+    //         </div>
+    //     );
+    // };
 
     const toastRef = useRef<Toast>(null);
     const failureToast = (message: string) => {
@@ -331,74 +331,74 @@ export default function TicketClassifier(props: any) {
         }, 4000);
     };
 
-    const handlePrediction = async () => {
-        // Show file processing loading
-        setIsPredicting(true);
+    // const handlePrediction = async () => {
+    //     // Show file processing loading
+    //     setIsPredicting(true);
 
-        try {
-            // Check if file is selected
-            if (!testingFiles || testingFiles.length === 0) {
-                alert('Please select a file first');
-                setIsPredicting(false);
-                return;
-            }
+    //     try {
+    //         // Check if file is selected
+    //         if (!testingFiles || testingFiles.length === 0) {
+    //             alert('Please select a file first');
+    //             setIsPredicting(false);
+    //             return;
+    //         }
 
-            // Create FormData to send the file
-            const formData = new FormData();
-            formData.append('file', testingFiles[0]);
+    //         // Create FormData to send the file
+    //         const formData = new FormData();
+    //         formData.append('file', testingFiles[0]);
 
-            // Make API call with axios
-            const response = await axios.post('http://10.169.21.107:8001/batch-prediction', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                }
-            });
+    //         // Make API call with axios
+    //         const response = await axios.post('http://10.169.21.107:8001/batch-prediction', formData, {
+    //             headers: {
+    //                 'Content-Type': 'multipart/form-data',
+    //             }
+    //         });
 
-            // Axios automatically parses JSON response and stores it in response.data
-            const data = response.data;
+    //         // Axios automatically parses JSON response and stores it in response.data
+    //         const data = response.data;
 
-            if (data.status === 'success') {
-                // Handle successful response
-                successToast(`Prediction completed successfully: ${data.message}`);
-                let result = data.results;
-                // You can now use the returned data
-                // const { tabular_data, for_pie_chart, test_result_dict: TestResult } = data.results;
-                setTabularData(result.tabular_data);
-                setValCategory(result.tabular_data.Category);
-                const transformedData = transformTabularDataToRows(tabularData ?? undefined);
-                setTableData(transformedData);
+    //         if (data.status === 'success') {
+    //             // Handle successful response
+    //             successToast(`Prediction completed successfully: ${data.message}`);
+    //             let result = data.results;
+    //             // You can now use the returned data
+    //             // const { tabular_data, for_pie_chart, test_result_dict: TestResult } = data.results;
+    //             setTabularData(result.tabular_data);
+    //             setValCategory(result.tabular_data.Category);
+    //             const transformedData = transformTabularDataToRows(tabularData ?? undefined);
+    //             setTableData(transformedData);
 
-                setShowWelcomeMessage(false);
-                // Hard coded table Here....
-                setTableShow(true);
-            } else {
-                failureToast(`Prediction failed: ${data.message}`);
-                throw new Error('Prediction failed');
-            }
+    //             setShowWelcomeMessage(false);
+    //             // Hard coded table Here....
+    //             setTableShow(true);
+    //         } else {
+    //             failureToast(`Prediction failed: ${data.message}`);
+    //             throw new Error('Prediction failed');
+    //         }
 
-        } catch (error) {
-            console.error('Error during prediction:', error);
-            // Use type assertion to check for AxiosError
-            if (axios.isAxiosError(error)) {
-                if (error.response) {
-                    // Server responded with error status
-                    failureToast(`Server Error: ${error.response.status} - ${error.response.data?.message || 'Unknown error'}`);
-                } else if (error.request) {
-                    // Request was made but no response received
-                    failureToast('Network Error: No response from server');
-                } else {
-                    // Something else happened
-                    failureToast(`Error: ${error.message}`);
-                }
-            } else if (error instanceof Error) {
-                // Non-Axios error
-                failureToast(`Error: ${error.message}`);
-            }
-        } finally {
-            // Hide loading state
-            setIsPredicting(false);
-        }
-    };
+    //     } catch (error) {
+    //         console.error('Error during prediction:', error);
+    //         // Use type assertion to check for AxiosError
+    //         if (axios.isAxiosError(error)) {
+    //             if (error.response) {
+    //                 // Server responded with error status
+    //                 failureToast(`Server Error: ${error.response.status} - ${error.response.data?.message || 'Unknown error'}`);
+    //             } else if (error.request) {
+    //                 // Request was made but no response received
+    //                 failureToast('Network Error: No response from server');
+    //             } else {
+    //                 // Something else happened
+    //                 failureToast(`Error: ${error.message}`);
+    //             }
+    //         } else if (error instanceof Error) {
+    //             // Non-Axios error
+    //             failureToast(`Error: ${error.message}`);
+    //         }
+    //     } finally {
+    //         // Hide loading state
+    //         setIsPredicting(false);
+    //     }
+    // };
 
 
     //     const handlePrediction = async () => {
@@ -803,7 +803,7 @@ export default function TicketClassifier(props: any) {
                                     </div>
                                     {tableData.length > 0 && (
                                         <DataTable value={tableData} tableStyle={{ minWidth: '80rem' }}>
-                                            {columns.map((col, i) => (
+                                            {columns.map((col) => (
                                                 <Column
                                                     key={col.field}
                                                     field={col.field}
