@@ -7,6 +7,8 @@ import './Styles/ticketClassifierStyles.scss';
 import { FileUploadDropzone } from "./FileUploadDropzone";
 import kyamain from "./assets/kyamain.svg";
 import kyaside from "./assets/kyaside.svg";
+import logistic_regression from "./assets/logistic_regression-roc.png";
+import multinomial_naive_bayes from "./assets/multinomial_naive_bayes-roc.png";
 import './Styles/theme.scss';
 import LoadingComponent from "./LoadingComponent";
 import './Styles/loaderStyles.scss';
@@ -773,7 +775,7 @@ export default function TicketClassifier(props: any) {
                                                     <div key={model} className="model-chart">
                                                         <h4>{model.charAt(0).toUpperCase() + model.slice(1)} Model</h4>
                                                         <img
-                                                            src={`src/assets/${model}-roc.png`}
+                                                            src={model}
                                                             alt={`${model} ROC Chart`}
                                                             width="100%"
                                                         />
