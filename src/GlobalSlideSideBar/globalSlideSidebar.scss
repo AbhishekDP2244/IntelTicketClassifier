@@ -1,0 +1,96 @@
+///Mobile responsiveness
+@media(max-width: 767px) {
+    .sdlc-rag-sidebar-history-container ul.sidebar-history {
+        max-height: 70% ! IMPORTANT;
+        overflow-y: scroll !important;
+        scrollbar-width: thin !important;
+    }
+
+    nav.sdlc-rag-sidebar-history-container.own-rag.slidIn {
+        position: absolute !important;
+        z-index: 9999999 !important;
+    }
+}
+
+.history-global-msg-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 95%;
+}
+
+.delete-container-global-history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 5%;
+    // width: 10%;
+}
+
+.sdlc-rag-sidebar-history-container li {
+    display: flex;
+    width: 100%;
+    margin: 5px 5px !important;
+}
+
+.sdlc-rag-sidebar-history-container ul.sidebar-history {
+    max-height: 100% !important;
+    overflow: auto;
+    scrollbar-width: auto !important;
+}
+
+nav.sdlc-rag-sidebar-history-container.slidIn {
+    // display: block !important;
+    left: 0 !important;
+    width: 260px !important;
+    height: 100% !important;
+    background: white !important;
+    position: relative !important;
+    z-index: 100000000000 !important
+}
+
+.sdlc-rag-sidebar-history-container.own-rag {
+    // display: none;
+    background-color: #fff !important;
+    height: 100% !important;
+    left: -300px !important;
+    min-height: 100% !important;
+    // position: relative !important;
+    position: absolute !important;
+
+    top: 0 !important;
+    transition: left 0.25s cubic-bezier(0.4, 0, 1, 1) !important;
+    width: 218px;
+    max-width: 230px;
+    // display: inline-table;
+}
+
+.sidebar-controls img.pl-3 {
+    height: 35px;
+    width: 35px;
+}
+
+.sidebar-controls {
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 8px;
+    height: 30px;
+    max-height: 25px;
+    align-items: center;
+}
+
+.sidebar-controls img.pl-3 {
+    height: 35px;
+    width: 35px;
+    margin-top: -5px;
+}
+.your-request-heading-synapt-side{
+    font-size: 14px !important;
+}
+.global-slide-toggle-globalicon{
+    position: fixed;
+    left: 240px;
+    top: 15px;
+    height: 17px;
+}

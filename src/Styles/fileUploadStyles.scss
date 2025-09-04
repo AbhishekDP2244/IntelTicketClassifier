@@ -1,0 +1,305 @@
+/* FileUpload.css */
+
+/* Main container */
+.dual-file-upload-container {
+  // min-height: 100vh;
+  height: 90%;
+  width: 100%;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  // padding: 7px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+}
+
+.dual-file-upload-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  // justify-content: flex-end;
+  // max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.dual-file-upload-section {
+  display: flex;
+  gap: 20px;
+  // margin-bottom: 20px;
+  align-items: stretch;
+  height: 100%;
+}
+
+/* Individual dropzone container */
+.file-upload-dropzone-container {
+  flex: 1;
+  width: 50vw;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dropzone styling */
+.file-upload-dropzone {
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 10px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+  // min-height: 300px;
+  height: 100%;
+  max-height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex: 1;
+}
+
+.file-upload-dropzone:hover {
+  border-color: #6b7280;
+}
+
+.file-upload-dropzone.dragover {
+  border-color: #3b82f6 !important;
+  background: #eff6ff !important;
+}
+
+.file-upload-dropzone.has-file {
+  border-color: #10b981 !important;
+  background: #f0fdf4 !important;
+}
+
+/* File counter */
+.file-counter {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #e5e7eb;
+  color: #374151;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.file-counter.has-files {
+  background: #10b981;
+  color: white;
+}
+
+/* Dropzone content */
+.dropzone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropzone-label {
+  font-size: 16px;
+  color: #374151;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.dropzone-sublabel {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.dropzone-formats {
+  // font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.dropzone-size {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+/* Hidden file input */
+.file-input-hidden {
+  display: none;
+}
+
+/* Files list */
+.files-list {
+  // margin-top: 15px;
+  max-height: 180px;
+  overflow-y: auto;
+  width: 100%;
+  flex: 1;
+}
+
+.files-list::-webkit-scrollbar {
+  width: 4px;
+  display: block !important;
+}
+
+.files-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.files-list::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+.files-list::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* File item */
+.file-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.file-meta {
+  flex: 1;
+  text-align: left;
+  min-width: 0;
+}
+
+.file-name {
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 2px;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-size {
+  color: #6b7280;
+  font-size: 11px;
+}
+
+/* File actions */
+.file-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Buttons */
+.file-actions {
+  .dropZone-Button {
+    padding: 4px 8px !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-size: 11px !important;
+    background: white !important;
+    color: #374151 !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  .dropZone-Button:hover {
+    background: #f9fafb !important;
+  }
+
+  .dropZone-Button-delete {
+    color: #dc2626 !important;
+    border-color: #fecaca !important;
+  }
+
+  .dropZone-Button-delete:hover {
+    background: #fef2f2 !important;
+  }
+
+  .dropZone-Button-view:hover {
+    background: #f0f9ff !important;
+    border-color: #bfdbfe !important;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dual-file-upload-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .file-upload-dropzone {
+    padding: 10px 15px;
+    min-height: 140px;
+  }
+  
+  .dropzone-label {
+    font-size: 15px;
+  }
+  
+  // .dropzone-sublabel,
+  // .dropzone-formats {
+  //   font-size: 13px;
+  // }
+  
+  .file-item {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  .dropZone-Button {
+    padding: 3px 6px !important;
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .file-upload-dropzone {
+    padding: 8px 10px;
+  }
+  
+  .file-name {
+    font-size: 11px;
+  }
+  
+  .file-size {
+    font-size: 10px;
+  }
+  
+  .file-actions {
+    gap: 4px;
+  }
+}
+
+/* Focus states for accessibility */
+.dropZone-Button:focus {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 1px !important;
+}
+
+.file-upload-dropzone:focus-within {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+}
+
+// Toast component close button
+.p-toast .p-toast-message.p-toast-message-error .p-toast-icon-close{
+  padding: 0 !important;
+}
+.p-toast .p-toast-message .p-toast-icon-close:hover {
+    background: hsla(0, 0%, 100%, .5) !important;
+}
