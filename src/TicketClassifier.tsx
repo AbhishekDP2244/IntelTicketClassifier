@@ -11,7 +11,7 @@ import './Styles/theme.scss';
 import LoadingComponent from "./LoadingComponent";
 import './Styles/loaderStyles.scss';
 import { Toast } from "primereact/toast";
-import axios from 'axios';
+// import axios from 'axios';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import TicketTable from "./TicketTable";
@@ -98,11 +98,11 @@ export default function TicketClassifier(props: any) {
     const [selectedCategory, setSelectedCategory] = useState<string>('');
     const [trainingFiles, setTrainingFiles] = useState<File[]>([]);
     const [testingFiles, setTestingFiles] = useState<File[]>([]);
-    const [tabularData, setTabularData] = useState<TabularData | null>(null);
-    const [tableData, setTableData] = useState<TableRowData[]>([]);
+    // const [tabularData, setTabularData] = useState<TabularData | null>(null);
+    const [tableData,] = useState<TableRowData[]>([]);
     const [tableShow, setTableShow] = useState<boolean>(false);
 
-    const [valCategory, setValCategory] = useState<CategoryData[]>([]);
+    const [valCategory, ] = useState<CategoryData[]>([]);
 
     // Define columns for the DataTable
     const columns = [
@@ -115,30 +115,30 @@ export default function TicketClassifier(props: any) {
         { field: 'processedConcatenatedCategory', header: 'Processed Concatenated Category' }
     ];
 
-    const transformTabularDataToRows = (data?: TabularData): TableRowData[] => {
-        if (!data) return [];
-        const rows: TableRowData[] = [];
+    // const transformTabularDataToRows = (data?: TabularData): TableRowData[] => {
+    //     if (!data) return [];
+    //     const rows: TableRowData[] = [];
 
-        // Get the keys from one of the objects (assuming all have same indices)
-        const indices = Object.keys(data.Category);
+    //     // Get the keys from one of the objects (assuming all have same indices)
+    //     const indices = Object.keys(data.Category);
 
-        indices.forEach(index => {
-            const numIndex = parseInt(index);
-            rows.push({
-                id: index, // Use index as ID
-                ticketId: data.Ticket_ID[numIndex] || '',
-                category: data.Category[numIndex] || '',
-                subCategory: data.Sub_Category[numIndex] || '',
-                description: data.Description[numIndex] || '',
-                processedDescription: data.Processed_Description[numIndex] || '',
-                concatenatedCategory: data.concatenated_category[numIndex] || '',
-                processedConcatenatedCategory: data.processed_concatenated_category[numIndex] || '',
-                intermediateResult: data.intermediate_result[numIndex] || {}
-            });
-        });
+    //     indices.forEach(index => {
+    //         const numIndex = parseInt(index);
+    //         rows.push({
+    //             id: index, // Use index as ID
+    //             ticketId: data.Ticket_ID[numIndex] || '',
+    //             category: data.Category[numIndex] || '',
+    //             subCategory: data.Sub_Category[numIndex] || '',
+    //             description: data.Description[numIndex] || '',
+    //             processedDescription: data.Processed_Description[numIndex] || '',
+    //             concatenatedCategory: data.concatenated_category[numIndex] || '',
+    //             processedConcatenatedCategory: data.processed_concatenated_category[numIndex] || '',
+    //             intermediateResult: data.intermediate_result[numIndex] || {}
+    //         });
+    //     });
 
-        return rows;
-    };
+    //     return rows;
+    // };
 
     // Custom body template for long text fields (optional)
     // const descriptionBodyTemplate = (rowData: TableRowData) => {
@@ -162,9 +162,9 @@ export default function TicketClassifier(props: any) {
     // };
 
     const toastRef = useRef<Toast>(null);
-    const failureToast = (message: string) => {
-        toastRef.current?.show({ severity: 'error', summary: 'Error', detail: message, life: 5000 });
-    }
+    // const failureToast = (message: string) => {
+    //     toastRef.current?.show({ severity: 'error', summary: 'Error', detail: message, life: 5000 });
+    // }
     const successToast = (message: string) => {
         toastRef.current?.show({ severity: 'success', summary: 'Success', detail: message, life: 5000 });
     }
