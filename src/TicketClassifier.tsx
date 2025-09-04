@@ -22,9 +22,9 @@ interface Department {
 }
 
 // Individual interfaces for better type safety
-// interface CategoryData {
-//     [key: number]: string; // e.g., { 0: 'User Account', 1: 'Password Reset', ... }
-// }
+interface CategoryData {
+    [key: number]: string; // e.g., { 0: 'User Account', 1: 'Password Reset', ... }
+}
 
 // interface DescriptionData {
 //     [key: number]: string; // e.g., { 0: 'emp c...', ... }
